@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ProjectileCollider : MonoBehaviour {
+	
 
-	// Use this for initialization
-	void Start () {
-	
+		void OnTriggerEnter(Collider other) 
+		{
+			if (other.gameObject.CompareTag ( "Pick Up"))
+			{	
+				
+				other.gameObject.SetActive (false);
+			}
+		}			
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-}
