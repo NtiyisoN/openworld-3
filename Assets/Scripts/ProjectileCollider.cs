@@ -4,12 +4,7 @@ using System.Collections;
 
 public class ProjectileCollider : MonoBehaviour {
 	
-	private GameObject player;
 
-		void Start ()
-		{
-		player = GameObject.FindGameObjectsWithTag ("Pick Up");
-		}
 
 		void OnTriggerEnter(Collider other) 
 		{
