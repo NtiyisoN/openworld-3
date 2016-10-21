@@ -12,27 +12,31 @@ public class PlayerCount : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 		count = 0;
 		SetCountText ();
 		winText.text = "";
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 		SetCountText ();
-	
+
 	}
 
 	void SetCountText ()
 	{
 		countText.text = "Count: " + count.ToString ();
-		if (count >= GameObject.FindGameObjectsWithTag("Pick Up").Length)
+		if (GameObject.FindGameObjectsWithTag("Pick Up").Length <= 0)
 		{
 			winText.text = "You Win!";
 		}
+	}
+
+	public void addCount(){
+		count++;
 	}
 
 	void setCount(int counts)
