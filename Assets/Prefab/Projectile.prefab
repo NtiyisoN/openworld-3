@@ -38,9 +38,9 @@ GameObject:
   - 4: {fileID: 4000012579086614}
   - 33: {fileID: 33000013649393234}
   - 23: {fileID: 23000012851634658}
-  - 135: {fileID: 135000011084337442}
   - 54: {fileID: 54000011308637946}
   - 114: {fileID: 114000011302676652}
+  - 136: {fileID: 136000011133516154}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Projectile
@@ -1446,8 +1446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada68daa72e038f4e971b03dc54c44f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &135000011084337442
-SphereCollider:
+--- !u!136 &136000011133516154
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -1455,6 +1455,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

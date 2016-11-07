@@ -24,6 +24,7 @@ public class Yo : MonoBehaviour {
 			Rigidbody clone;
 			clone = (Rigidbody)Instantiate(projectile, Spawnpoint.position, Spawnpoint.rotation);
 			clone.transform.Translate(Vector3.right * Time.deltaTime * 130);
+			clone.GetComponent<Renderer> ().material.color = new Color (1, 0, 0);
 			// ignore
 			Physics.IgnoreCollision(clone.GetComponent<Collider>(), player.GetComponent<Collider>());
 			// shoot
