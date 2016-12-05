@@ -7,12 +7,14 @@ public class PlayerCount : MonoBehaviour {
 
 	public Text countText;
 	public Text winText;
+	public GameObject player;
 
 	private int count;
 
 	// Use this for initialization
 	void Start () {
-
+		
+		player = GameObject.FindGameObjectWithTag("Player");
 		count = 0;
 		SetCountText ();
 		winText.text = "";
@@ -23,6 +25,12 @@ public class PlayerCount : MonoBehaviour {
 	void Update () {
 
 		SetCountText ();
+		if(player.transform.position.y < 2)
+		{ 
+			winText.text = "Game Over";
+			Vector3 newPos = new Vector3(1021.39f,24.0f,386.49f);
+			player.transform.position = newPos;
+		}
 
 	}
 
