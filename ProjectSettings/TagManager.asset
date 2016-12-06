@@ -12,6 +12,7 @@ TagManager:
   - Launcher
   - Target
   - Terrain
+  - Ile2
   layers:
   - Default
   - TransparentFX
