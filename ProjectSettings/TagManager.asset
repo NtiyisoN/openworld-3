@@ -13,6 +13,7 @@ TagManager:
   - Target
   - Terrain
   - Ile2
+  - New Tag
   layers:
   - Default
   - TransparentFX
