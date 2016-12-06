@@ -28,8 +28,7 @@ public class PlayerCount : MonoBehaviour {
 		if(player.transform.position.y < 2)
 		{ 
 			winText.text = "Game Over";
-			Vector3 newPos = new Vector3(1021.39f,24.0f,386.49f);
-			player.transform.position = newPos;
+
 		}
 
 	}
