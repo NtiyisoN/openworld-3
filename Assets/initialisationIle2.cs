@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class reniatialisation : MonoBehaviour {
+public class initialisationIle2 : MonoBehaviour {
 
 	// Use this for initialization
 	public GameObject player;
@@ -9,12 +9,12 @@ public class reniatialisation : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
 		Ile2 = GameObject.FindGameObjectWithTag("Ile2");
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 		if(player.transform.position.y < 2)
 		{ 
 			Vector3 newPos = new Vector3(1021.39f,24.0f,386.49f);
