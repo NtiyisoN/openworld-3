@@ -2501,6 +2501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e471e69c512114e42a11a0ec608415d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
 --- !u!4 &476886031 stripped
 Transform:
   m_PrefabParentObject: {fileID: 409640, guid: 69f03106b379b514fac245dbb865cbdd, type: 2}
@@ -4068,6 +4069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e471e69c512114e42a11a0ec608415d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 952014708}
 --- !u!1 &881304258
 GameObject:
   m_ObjectHideFlags: 0
@@ -7799,7 +7801,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890666574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 212.4147, y: 0.53288937, z: 191.51294}
+  m_LocalPosition: {x: 219.3905, y: -1.5911074, z: 191.51294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
