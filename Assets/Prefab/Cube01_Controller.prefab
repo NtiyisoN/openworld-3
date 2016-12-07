@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 409640}
   - 114: {fileID: 11480726}
   m_Layer: 0
-  m_Name: CubeExplosif
+  m_Name: Cube01_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
