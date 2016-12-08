@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour {
 	public GameObject canvasIntro;
 	public GameObject ile2;
 
-	private int niveauActuel = 0;
+	private int niveauActuel = 1;
 
 	// Use this for initialization
 	void Start () {
