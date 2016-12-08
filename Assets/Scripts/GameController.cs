@@ -1,36 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
+	// joueur
 	public GameObject joueur;
+	private int nbCochons;
+	private int niveauActuel;
+
+	// intro
 	public Camera introCamera;
+	 
+	// canvas
 	public GameObject canvasIntro;
+	public GameObject canvasGui;
+	public Text texteNbCochons;
+	public GameObject canvasVictoire;
+	public GameObject canvasGameOver;
+
+	// iles
 	public GameObject ile2;
 
-	private int niveauActuel = 1;
-
-	// Use this for initialization
 	void Start () {
-	
+		introCamera.enabled = true;
+		cacherTousLesCanvas ();
+		canvasIntro.SetActive (true);
+		//canvasVictoire.SetActive (true);
+		//Debug.Log(canvasVictoire.GetComponent());
+		joueur.SetActive (false);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		// si on tombe dans l'eau, on recommencele niveau
-		if (joueur.transform.position.y < 2) {
-			niveauActuel--;
-			prochainNiveau();
+		// si on tombe dans l'eau, on recommence le niveau
+		if (joueur.transform.position.y < 3) {
+			//niveauActuel--;
+			//prochainNiveau();
+			gameOver();
 		}
 	}
 
 	public void Jouer(){
 		Debug.Log ("Jouer");
+		niveauActuel = 1;
 		prochainNiveau ();
-		introCamera.enabled = false;
-		canvasIntro.SetActive (false);
-		joueur.SetActive (true);
-
+		introToJoueur();
 	}
 
 	public void prochainNiveau(){
@@ -39,8 +53,6 @@ public class GameController : MonoBehaviour {
 			niveau1 ();
 		} else if (niveauActuel == 2) {
 			niveau2 ();
-		} else if (niveauActuel == 3) {
-			niveau3 ();
 		} else {
 			victoire ();
 		}
@@ -50,6 +62,7 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("niveau 1");
 		Vector3 newPos = new Vector3(215f,10f,200f);
 		joueur.transform.position = newPos;
+		nbCochons = 3;
 	}
 
 	private void niveau2(){
@@ -59,18 +72,55 @@ public class GameController : MonoBehaviour {
 		joueur.transform.eulerAngles = new Vector3(0, -75f, 0);
 		Vector3 newPosIle = new Vector3(697f,-39f,281.7f);
 		ile2.transform.position = newPosIle;
+		nbCochons = 10;
 	}
 
-	private void niveau3(){
-
+	public void victoire() {
+		joueurToIntro ();
+		canvasVictoire.SetActive (true);
 	}
 
-	private void victoire() {
-
+	public void gameOver(){
+		joueurToIntro ();
+		canvasGameOver.SetActive (true);
 	}
 
 	public void Quitter() {
 		Debug.Log ("Quitter");
 		Application.Quit ();
+	}
+
+	private void cacherTousLesCanvas() {
+		canvasGui.SetActive (false);
+		canvasIntro.SetActive (false);
+		canvasVictoire.SetActive (false);
+		canvasGameOver.SetActive (false);
+	}
+
+	private void joueurToIntro(){
+		cacherTousLesCanvas ();
+		canvasIntro.SetActive (true);
+		introCamera.enabled = true;
+		joueur.SetActive (false);
+	}
+
+	private void introToJoueur(){
+		cacherTousLesCanvas ();
+		canvasGui.SetActive (true);
+		introCamera.enabled = false;
+		joueur.SetActive (true);
+		texteNbCochons.text = ""+nbCochons;
+	}
+
+	public bool demandeDeTir() {
+		Debug.Log ("demande de tir : " + nbCochons);
+		if (nbCochons >= 1) {
+			nbCochons--;
+			texteNbCochons.text = ""+nbCochons;
+			return true;
+		} else {
+			gameOver ();
+			return false;
+		}
 	}
 }
