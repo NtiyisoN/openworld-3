@@ -32,17 +32,15 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
-		// si on tombe dans l'eau, on recommence le niveau
+		// si on tombe dans l'eau => game over
 		if (joueur.transform.position.y < 3) {
-			//niveauActuel--;
-			//prochainNiveau();
 			gameOver();
 		}
 	}
 
 	public void Jouer(){
 		Debug.Log ("Jouer");
-		niveauActuel = 1;
+		niveauActuel = 0;
 		prochainNiveau ();
 		introToJoueur();
 	}
@@ -63,16 +61,19 @@ public class GameController : MonoBehaviour {
 		Vector3 newPos = new Vector3(215f,10f,200f);
 		joueur.transform.position = newPos;
 		nbCochons = 3;
+		actualiserNbCochonsGui ();
 	}
 
 	private void niveau2(){
 		Debug.Log ("niveau 2");
+		nbCochons = 10;
+		actualiserNbCochonsGui ();
 		Vector3 newPos = new Vector3(1021.39f,24.0f,386.49f);
 		joueur.transform.position = newPos;
 		joueur.transform.eulerAngles = new Vector3(0, -75f, 0);
 		Vector3 newPosIle = new Vector3(697f,-39f,281.7f);
 		ile2.transform.position = newPosIle;
-		nbCochons = 10;
+
 	}
 
 	public void victoire() {
@@ -116,11 +117,15 @@ public class GameController : MonoBehaviour {
 		Debug.Log ("demande de tir : " + nbCochons);
 		if (nbCochons >= 1) {
 			nbCochons--;
-			texteNbCochons.text = ""+nbCochons;
+			actualiserNbCochonsGui ();
 			return true;
 		} else {
 			gameOver ();
 			return false;
 		}
+	}
+
+	private void actualiserNbCochonsGui(){
+		texteNbCochons.text = ""+nbCochons;
 	}
 }
